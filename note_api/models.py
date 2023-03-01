@@ -8,3 +8,10 @@ class NoteModel(models.Model):
     year_of_birth = models.IntegerField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "notes"
+        ordering = ['-created_at']
+
+        def __str__(self) -> str:
+            return self.title
