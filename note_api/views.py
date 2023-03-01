@@ -56,7 +56,7 @@ class NoteDetail(generics.GenericAPIView):
         serializer = self.serializer_class(note)
         return Response({"status": "success", "note": serializer.data})
 
-    def update(self, request, pk):
+    def patch(self, request, pk):
         note = self.get_note(pk)
         if note == None:
             return Response({"status": "fail", "message": f"Note with Id: {pk} not found"}, status=status.HTTP_404_NOT_FOUND)
